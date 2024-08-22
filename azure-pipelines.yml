@@ -22,4 +22,4 @@ steps:
         az acr login --name acsdevdeployment      
         IMAGE_REGISTRY=acsdevdeployment.azurecr.io ARCH=amd64 OUTPUT_TYPE=docker make build-ccm-image
         IMAGE_TAG=$(git rev-parse --short=7 HEAD)
-        docker push acscorpdevdeployment.azurecr.io/azure-cloud-controller-manager:$IMAGE_TAG
+        docker push acsdevdeployment.azurecr.io/azure-cloud-controller-manager:$IMAGE_TAG
