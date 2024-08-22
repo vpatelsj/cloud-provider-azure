@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 1es-aks-infra-build
 
 steps:
   - task: AzureCLI@2
@@ -20,5 +20,5 @@ steps:
         set -euo pipefail
         az acr login --name acsdevdeployment      
         IMAGE_REGISTRY=acsdevdeployment.azurecr.io ARCH=amd64 OUTPUT_TYPE=docker make build-ccm-image
-        IMAGE_TAG ?= $(shell git rev-parse --short=7 HEAD)
+        IMAGE_TAG=$(git rev-parse --short=7 HEAD)
         docker push acscorpdevdeployment.azurecr.io/azure-cloud-controller-manager:$IMAGE_TAG
