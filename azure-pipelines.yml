@@ -6,8 +6,7 @@
 trigger:
 - master
 
-pool:
-  vmImage: 1es-aks-infra-build
+pool: 1es-aks-infra-build
 
 steps:
   - task: AzureCLI@2
